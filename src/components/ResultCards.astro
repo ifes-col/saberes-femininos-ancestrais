@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import mural from '../assets/mural/Foto15.jpeg';
+import logo from '../assets/brand/logo-vertical.png';
+import { localPath } from '../lib/site';
+---
+<div class="result-grid">
+  <article class="result-card">
+    <a class="result-image book-art" href={localPath('/resultados/livro/')} tabindex="-1" aria-hidden="true">
+      <Image src={logo} alt="" width={580} format="webp" loading="lazy" />
+      <span class="image-label">LEITURA & MEMÓRIA</span>
+    </a>
+    <div class="result-body">
+      <p class="card-overline">01 / PUBLICAÇÃO</p>
+      <h3><a href={localPath('/resultados/livro/')}>O livro</a></h3>
+      <p>Histórias que guardam a força, o cuidado e a sabedoria de mulheres ancestrais.</p>
+      <a class="text-link" href={localPath('/resultados/livro/')}>Conheça o livro <span aria-hidden="true">↗</span></a>
+    </div>
+  </article>
+  <article class="result-card">
+    <a class="result-image" href={localPath('/resultados/mural-ancestral/')} tabindex="-1" aria-hidden="true">
+      <Image src={mural} alt="" width={800} format="webp" loading="lazy" />
+      <span class="image-label">ARTE & TERRITÓRIO</span>
+    </a>
+    <div class="result-body">
+      <p class="card-overline">02 / INTERVENÇÃO</p>
+      <h3><a href={localPath('/resultados/mural-ancestral/')}>Mural ancestral</a></h3>
+      <p>Uma celebração em cores dos saberes que vivem na comunidade.</p>
+      <a class="text-link" href={localPath('/resultados/mural-ancestral/')}>Explore o mural <span aria-hidden="true">↗</span></a>
+    </div>
+  </article>
+</div>

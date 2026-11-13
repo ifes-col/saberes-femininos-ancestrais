@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { localPath } from '../lib/site';
+---
+<BaseLayout title="Apresentação">
+  <PageIntro eyebrow="SOBRE O PROJETO" title="Histórias que merecem ser lembradas." description="Uma pesquisa sobre memórias, cuidados e encantos das mulheres da Piedade e da Fonte Grande, em Vitória (ES)." />
+  <section class="section">
+    <div class="container editorial-grid">
+      <div><p class="eyebrow"><span aria-hidden="true">✳</span> NOSSA HISTÓRIA</p><h2>Escutar é também uma forma de <em>cuidar.</em></h2></div>
+      <div class="prose">
+        <p class="lead">Os saberes que passam de geração em geração ajudam a contar a história de um lugar e de sua gente.</p>
+        <p>O projeto Saberes Femininos Ancestrais buscou recuperar, registrar e valorizar os conhecimentos e as memórias das mulheres que contribuíram para a formação e o desenvolvimento das comunidades da Piedade e da Fonte Grande.</p>
+        <p>Por meio de entrevistas, histórias de vida e registros fotográficos, a pesquisa de iniciação científica júnior deu visibilidade a experiências e saberes transmitidos entre gerações. A iniciativa também buscou reconhecer o protagonismo feminino na construção da história e da identidade dos territórios.</p>
+        <p>Assim, o projeto valorizou mulheres cujas contribuições nem sempre receberam o devido reconhecimento nos registros históricos.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section section-tint">
+    <div class="container editorial-grid">
+      <div><p class="eyebrow"><span aria-hidden="true">✳</span> UMA CONSTRUÇÃO COLETIVA</p><h2>Pesquisa, escola e <em>comunidade.</em></h2></div>
+      <div class="prose">
+        <p>Desenvolvido pelo Instituto Federal do Espírito Santo (Ifes) – campus Vitória, em parceria com a Escola Municipal de Ensino Fundamental em Tempo Integral (EMEFTI) Anacleta Schneider Lucas, da Prefeitura Municipal de Vitória (ES), o projeto aproximou a pesquisa científica da comunidade escolar, envolvendo estudantes da educação básica como jovens pesquisadores.</p>
+        <p>A iniciativa contou com financiamento da Fundação de Amparo à Pesquisa e Inovação do Espírito Santo (Fapes), por meio do Edital Fapes/Sedu 17/2025 – PIC Jr 2026.</p>
+        <a class="text-link" href={localPath('/equipe/')}>Conheça as pessoas do projeto <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

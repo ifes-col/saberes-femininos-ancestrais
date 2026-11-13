@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { email, instagramUrl } from '../lib/site';
+---
+<BaseLayout title="Contato">
+  <PageIntro eyebrow="VAMOS CONVERSAR?" title="Toda história começa com um encontro." description="Entre em contato para saber mais sobre o projeto e acompanhe nossos caminhos." />
+  <section class="section">
+    <div class="container editorial-grid">
+      <div><p class="eyebrow"><span aria-hidden="true">✳</span> FALE COM A GENTE</p><h2>Vamos manter essa conversa <em>viva.</em></h2></div>
+      <div class="contact-list">
+        <div><p class="card-overline">COORDENAÇÃO DO PROJETO</p><h3>Luciana Silvestre Girelli</h3><a class="text-link" href={`mailto:${email}`}>{email} <span aria-hidden="true">↗</span></a></div>
+        <div><p class="card-overline">ACOMPANHE O PROJETO</p><h3>Instagram</h3><a class="text-link" href={instagramUrl}>@projetosaberfemininoancestral <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../../assets/brand/logo-vertical.png';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import { bookUrl } from '../../lib/site';
+---
+<BaseLayout title="Livro">
+  <PageIntro eyebrow="RESULTADOS / LIVRO" title="Uma memória que se compartilha." description="Um convite a conhecer histórias e saberes que permanecem vivos no território." />
+  <section class="section">
+    <div class="container book-layout">
+      <div class="book-display"><Image src={logo} alt="" width={650} format="webp" /></div>
+      <div class="prose">
+        <p class="eyebrow"><span aria-hidden="true">✳</span> SABERES FEMININOS ANCESTRAIS</p>
+        <h2>Histórias que <em>atravessam gerações.</em></h2>
+        <p>O livro reúne histórias de mulheres que fizeram das comunidades da Piedade e da Fonte Grande lugares de cuidado, acolhimento, sabedoria e coletividade.</p>
+        <p>Organização: Luciana Silvestre Girelli, Marcela Ribeiro de Marins, Bruna C. F. Menezes Lemos e Sheila Maria Vidal.</p>
+        <a class="button button-dark" href={bookUrl}>Acessar o livro no repositório do Ifes <span aria-hidden="true">↗</span></a>
+        <p class="small-note">Link externo para o download do livro em PDF.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

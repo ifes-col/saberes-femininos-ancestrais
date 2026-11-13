@@ -1,0 +1,27 @@
+---
+import { email, instagramUrl, localPath, navItems } from '../lib/site';
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-kicker">Memórias que permanecem.</p>
+      <p class="footer-title">Saberes Femininos<br />Ancestrais<span>.</span></p>
+      <p class="footer-copy">Memórias, cuidados e encantos das mulheres da Piedade e da Fonte Grande — Vitória (ES).</p>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul class="footer-links">
+        {navItems.map((item) => <li><a href={localPath(item.path)}>{item.label}</a></li>)}
+      </ul>
+    </div>
+    <div>
+      <h2>Vamos conversar?</h2>
+      <p><a href={`mailto:${email}`}>{email}</a></p>
+      <p><a href={instagramUrl}>Instagram do projeto <span aria-hidden="true">↗</span></a></p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>Uma iniciativa Ifes – campus Vitória e EMEFTI Anacleta Schneider Lucas, com financiamento da Fapes.</p>
+    <p>Feito para preservar e compartilhar memórias.</p>
+  </div>
+</footer>

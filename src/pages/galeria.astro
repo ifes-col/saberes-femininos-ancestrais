@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { localPath } from '../lib/site';
+const themes = ['Rodas de conversa', 'Caminhada científica', 'Pesquisa no território', 'Mulheres ancestrais', 'Lançamento do livro'];
+---
+<BaseLayout title="Galeria">
+  <PageIntro eyebrow="REGISTROS & ENCONTROS" title="Memórias em imagens." description="Momentos, encontros e caminhos percorridos ao longo do projeto." />
+  <section class="section">
+    <div class="container editorial-grid">
+      <div><p class="eyebrow"><span aria-hidden="true">✳</span> EM PREPARAÇÃO</p><h2>Cada imagem guarda uma <em>história.</em></h2></div>
+      <div class="prose">
+        <p>Esta galeria está em preparação. Os registros serão organizados por temas quando estiverem disponíveis:</p>
+        <ul class="theme-list">{themes.map((theme) => <li><span aria-hidden="true">✳</span> {theme}</li>)}</ul>
+        <p>Enquanto isso, conheça os registros da construção do mural ancestral.</p>
+        <a class="text-link" href={localPath('/resultados/mural-ancestral/')}>Ver o mural ancestral <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

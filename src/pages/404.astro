@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { localPath } from '../lib/site';
+---
+<BaseLayout title="Página não encontrada">
+  <PageIntro eyebrow="ERRO 404" title="Este caminho não foi encontrado." description="A página que você procura pode ter mudado de endereço ou não estar mais disponível." />
+  <section class="section"><div class="container"><a class="button button-dark" href={localPath('/')}>Voltar ao início <span aria-hidden="true">↗</span></a></div></section>
+</BaseLayout>

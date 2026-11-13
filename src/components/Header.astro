@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/logo-horizontal.png';
+import { localPath, navItems } from '../lib/site';
+
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={localPath('/')} aria-label="Saberes Femininos Ancestrais — página inicial">
+      <Image src={logo} alt="" width={300} format="webp" loading="eager" />
+    </a>
+    <nav aria-label="Navegação principal">
+      <ul class="nav-list">
+        {navItems.map((item) => {
+          const path = localPath(item.path);
+          const normalized = path.replace(/\/$/, '') || '/';
+          const active = current === normalized || (item.path === '/resultados/' && current.startsWith(`${normalized}/`));
+          return <li><a href={path} aria-current={active ? 'page' : undefined}>{item.label}</a></li>;
+        })}
+      </ul>
+    </nav>
+  </div>
+</header>

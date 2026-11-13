@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import ResultCards from '../../components/ResultCards.astro';
+---
+<BaseLayout title="Resultados">
+  <PageIntro eyebrow="O QUE FLORESCEU" title="Memórias que ganham forma." description="O encontro entre pesquisa e comunidade deu origem a formas de preservar e compartilhar esses saberes." />
+  <section class="section">
+    <div class="container"><ResultCards /></div>
+  </section>
+  <section class="section section-tint">
+    <div class="container editorial-grid">
+      <div><p class="eyebrow"><span aria-hidden="true">✳</span> CONTINUAMOS A CONSTRUIR</p><h2>Publicações e <em>eventos.</em></h2></div>
+      <div class="prose"><p>Esta seção está em preparação. Informações sobre publicações e eventos serão compartilhadas quando estiverem disponíveis.</p></div>
+    </div>
+  </section>
+</BaseLayout>

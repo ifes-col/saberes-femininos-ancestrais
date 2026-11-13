@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { team } from '../data/team';
+---
+<BaseLayout title="Equipe">
+  <PageIntro eyebrow="FEITO POR MUITAS MÃOS" title="Pessoas que fazem a história acontecer." description="Conheça quem participou da construção desta pesquisa e contribuiu para registrar e valorizar os saberes femininos ancestrais." />
+  <div class="container team-content">
+    {team.map((group) => (
+      <section class="team-group">
+        <div class="team-group-title"><p class="eyebrow"><span aria-hidden="true">✳</span> NOSSA EQUIPE</p><h2>{group.title}</h2></div>
+        {group.title === 'Pesquisadores juniores' && <p class="group-description">Estudantes da EMEFTI Anacleta Schneider Lucas.</p>}
+        {group.title === 'Pesquisadoras de graduação' && <p class="group-description">Estudantes de Licenciatura em Letras Português do Ifes – campus Vitória.</p>}
+        <div class="team-grid">
+          {group.people.map((person) => (
+            <article class="person-card">
+              <Image src={person.image} alt={`Retrato de ${person.name}.`} width={520} format="webp" loading="lazy" />
+              <div><h3>{person.name}</h3>{person.role && <p>{person.role}</p>}</div>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</BaseLayout>
