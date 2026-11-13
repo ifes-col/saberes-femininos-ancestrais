@@ -2,17 +2,38 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import { localPath } from '../lib/site';
-const themes = ['Rodas de conversa', 'Caminhada científica', 'Pesquisa no território', 'Mulheres ancestrais', 'Lançamento do livro'];
+import { galleryThemes } from '../data/gallery';
 ---
 <BaseLayout title="Galeria">
   <PageIntro eyebrow="REGISTROS & ENCONTROS" title="Memórias em imagens." description="Momentos, encontros e caminhos percorridos ao longo do projeto." />
   <section class="section">
+    <div class="container gallery-page">
+      {galleryThemes.map((theme) => (
+        <article class="gallery-theme">
+          <div class="gallery-header">
+            <div>
+              <p class="eyebrow"><span aria-hidden="true">✳</span> MEMÓRIA VISUAL</p>
+              <h2>{theme.title}</h2>
+            </div>
+            <p class="gallery-description">{theme.description}</p>
+          </div>
+          <div class="gallery-grid">
+            {theme.images.map((item) => (
+              <figure class="gallery-card">
+                <img src={item.image.src} alt={item.alt} loading="lazy" />
+              </figure>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="section section-tint">
     <div class="container editorial-grid">
-      <div><p class="eyebrow"><span aria-hidden="true">✳</span> EM PREPARAÇÃO</p><h2>Cada imagem guarda uma <em>história.</em></h2></div>
+      <div><p class="eyebrow"><span aria-hidden="true">✳</span> REGISTROS</p><h2>Memórias que continuam <em>vivas.</em></h2></div>
       <div class="prose">
-        <p>Esta galeria está em preparação. Os registros serão organizados por temas quando estiverem disponíveis:</p>
-        <ul class="theme-list">{themes.map((theme) => <li><span aria-hidden="true">✳</span> {theme}</li>)}</ul>
-        <p>Enquanto isso, conheça os registros da construção do mural ancestral.</p>
+        <p>As imagens da galeria registram rodas de conversa, caminho de pesquisa, encontros no território e histórias de mulheres ancestrais que vivem no centro do projeto.</p>
+        <p>Para conhecer o conjunto visual do mural produzido na comunidade, siga para o registro do mural ancestral.</p>
         <a class="text-link" href={localPath('/resultados/mural-ancestral/')}>Ver o mural ancestral <span aria-hidden="true">↗</span></a>
       </div>
     </div>

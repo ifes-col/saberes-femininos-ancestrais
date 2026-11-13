@@ -21,7 +21,7 @@ O [mapa do site](./fonte/mapa%20do%20site.docx) define as seções. Foram identi
 | Equipe | [Lista de integrantes](./fonte/Equipe/1%20Apresentação%20da%20Equipe.docx) e nove retratos | Associar fotos e nomes, confirmar grafias e autorizações antes da publicação. |
 | Livro | [Link do repositório](./fonte/Resultados/Livro/link%20livro%20repositório.docx) e [PDF local](./fonte/Resultados/Livro/livro_saberes_femininos_ancestrais.pdf) | Priorizar o link oficial; verificar o acesso e a adequação da página de destino. |
 | Mural ancestral | [Texto](./fonte/Resultados/Mural%20ancestral/Mural%20Ancestral.docx) e 16 fotografias | Criar página de resultado com contexto e galeria própria; obter legendas e créditos. |
-| Galeria geral | Pastas temáticas previstas no mapa, mas sem fotos | Não usar fotos do mural como se fossem outros eventos; publicar apenas temas com conteúdo aprovado. |
+| Galeria geral | Pastas temáticas com material fotográfico já disponível em `fonte/Galeria de fotos` | Publicar os temas com registros confirmados e manter a seleção editorial alinhada ao conteúdo disponível. |
 | Publicações e eventos | Pasta sem conteúdo | Não inventar itens; manter a seção preparada, sem links vazios, até receber material. |
 | Identidade visual | [Logotipos, paleta, fonte e elementos](./fonte/Identidade%20visual/) | Aplicar a identidade existente, verificando permissões e adequação para uso na web. |
 | Instagram e contato | [Instagram](./fonte/Instagram/link%20do%20instagram.docx) e [e-mail institucional](./fonte/Contatos/contato.docx) | Usar links diretos, sem formulário ou integração automática. |

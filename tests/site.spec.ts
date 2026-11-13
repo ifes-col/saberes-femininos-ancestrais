@@ -107,9 +107,11 @@ test('marcas institucionais são carregadas no rodapé', async ({ page }) => {
   }
 });
 
-test('seções ainda sem material não fingem ter conteúdo', async ({ page }) => {
+test('galeria exibe material real disponível e mantém outras seções em preparação', async ({ page }) => {
   await page.goto('/galeria/');
-  await expect(page.getByText('Esta galeria está em preparação.')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Rodas de conversa' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Mulheres ancestrais' })).toBeVisible();
+  await expect(page.locator('.gallery-card img')).toHaveCount(12);
   await page.goto('/resultados/');
   await expect(page.getByText('Esta seção está em preparação.')).toBeVisible();
 });

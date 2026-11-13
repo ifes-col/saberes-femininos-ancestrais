@@ -41,7 +41,7 @@ O teste usa a porta local 43147 e inicia e encerra seu próprio servidor de pré
 
 - Textos e páginas estão em `src/pages/`; equipe e fotografias do mural em `src/data/`. Mantenha nomes, funções, textos alternativos e créditos conferidos com as fontes.
 - Os recursos usados pelo site estão em `src/assets/` e são transformados durante a compilação. O diretório `fonte/` é apenas material de referência e não é necessário para executar ou construir o site. O livro é acessado pelo repositório do Ifes; o PDF local não é incluído no build.
-- A galeria geral e a seção de publicações e eventos estão em preparação porque seus materiais ainda não foram fornecidos.
+- A galeria geral já conta com material visual organizado por temas e a seção de publicações e eventos continua em preparação enquanto os materiais forem confirmados.
 - **Antes de publicar**, confirme a autorização para imagens e nomes, inclusive de menores de idade, os créditos, a licença da fonte, a revisão editorial e a acessibilidade do livro. As imagens de equipe e mural já aparecem na prévia e no build; não envie `dist/` para hospedagem pública até concluir essas verificações.
 - A saída `dist/` pode ser servida por qualquer hospedagem estática. Não foi configurada publicação automática nem escolhido provedor.
 - Após definir o domínio, use `SITE_URL=https://exemplo.org npm run build` para habilitar URLs canônicas. Para hospedagem em subdiretório, defina também `SITE_BASE=/nome-do-site`; teste os links no endereço final. Configure o sitemap e as regras de 404 e HTTPS no provedor escolhido.
