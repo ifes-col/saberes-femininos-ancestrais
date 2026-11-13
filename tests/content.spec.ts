@@ -35,6 +35,14 @@ test('resultados apresentam os três eventos científicos da fonte', async ({ pa
   await expect(page.locator('time[datetime]')).toHaveCount(3);
 });
 
+test('capa do livro é carregada junto ao link de acesso', async ({ page }) => {
+  await page.goto('/resultados/livro/');
+  const cover = page.getByRole('img', { name: /Capa do livro Saberes Femininos Ancestrais/ });
+  await expect(cover).toBeVisible();
+  await expect.poll(() => cover.evaluate((image) => image instanceof HTMLImageElement && image.naturalWidth > 0 && image.naturalHeight > image.naturalWidth)).toBe(true);
+  await expect(page.getByRole('link', { name: /Acessar o livro no repositório do Ifes/ })).toBeVisible();
+});
+
 test('galeria usa duas colunas em telas estreitas', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 900 });
   await page.goto('/galeria/');
@@ -49,6 +57,22 @@ test('galeria usa duas colunas em telas estreitas', async ({ page }) => {
   expect(third!.y).toBeGreaterThan(first!.y);
 });
 
+for (const width of [320, 1440]) {
+  test(`prévia reduz a altura da galeria em ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/galeria/');
+    const gallery = page.locator('.gallery-page');
+    const compactHeight = await gallery.evaluate((element) => element.scrollHeight);
+    await page.locator('.gallery-more').evaluateAll((sections) => {
+      for (const section of sections) {
+        if (section instanceof HTMLDetailsElement) section.open = true;
+      }
+    });
+    const expandedHeight = await gallery.evaluate((element) => element.scrollHeight);
+    expect(compactHeight).toBeLessThan(expandedHeight * 0.6);
+  });
+}
+
 test('créditos do livro e legendas sem etapa presumida estão disponíveis', async ({ page }) => {
   await page.goto('/resultados/livro/');
   await page.getByText('Créditos do livro').click();
@@ -57,6 +81,9 @@ test('créditos do livro e legendas sem etapa presumida estão disponíveis', as
   const accessibility = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
   expect(accessibility.violations).toEqual([]);
   await page.goto('/galeria/');
+  await page.locator('#caminhada-cientifica .gallery-more summary').click();
+  await page.locator('#mulheres-ancestrais .gallery-more summary').click();
+  await page.locator('#pesquisa-no-territorio .gallery-more summary').click();
   await expect(page.getByRole('img', { name: 'Registro da caminhada científica.', exact: true })).toHaveCount(2);
   await expect(page.getByText('Integrantes da Pastoral da Criança: Delza, Carminha, Nadir e Terezinha.', { exact: true })).toHaveCount(1);
   await expect(page.getByText('Integrantes da Pastoral da Criança: Delza, Carminha, Nadir e Terezinha (da esquerda para a direita).', { exact: true })).toHaveCount(1);

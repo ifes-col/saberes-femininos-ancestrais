@@ -1,0 +1,16 @@
+---
+import { Image } from 'astro:assets';
+import type { GalleryImage } from '../data/gallery';
+
+interface Props {
+  item: GalleryImage;
+}
+
+const { item } = Astro.props;
+---
+<figure class="gallery-card">
+  <a href={item.image.src} data-lightbox-item aria-label={`Ampliar imagem: ${item.alt}`}>
+    <Image src={item.image} alt={item.alt} width={Math.min(item.image.width, 800)} format="webp" loading="lazy" />
+  </a>
+  {item.caption && <figcaption>{item.caption}</figcaption>}
+</figure>

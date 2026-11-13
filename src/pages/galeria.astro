@@ -1,15 +1,24 @@
 ---
-import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageIntro from '../components/PageIntro.astro';
+import GalleryCard from '../components/GalleryCard.astro';
 import GalleryNarratives from '../components/GalleryNarratives.astro';
+import ImageViewer from '../components/ImageViewer.astro';
 import { localPath } from '../lib/site';
 import { galleryThemes } from '../data/gallery';
+
+const previewCount = 3;
 ---
 <BaseLayout title="Galeria">
   <PageIntro eyebrow="REGISTROS & ENCONTROS" title="Memórias em imagens." description="Momentos, encontros e caminhos percorridos ao longo do projeto." />
   <section class="section">
     <div class="container gallery-page">
+      <nav class="gallery-navigation" aria-label="Temas da galeria">
+        <p>Explore por tema</p>
+        <ul>
+          {galleryThemes.map((theme) => <li><a href={`#${theme.id}`}>{theme.title}</a></li>)}
+        </ul>
+      </nav>
       {galleryThemes.map((theme) => (
         <article class="gallery-theme" id={theme.id}>
           <div class="gallery-header">
@@ -20,20 +29,25 @@ import { galleryThemes } from '../data/gallery';
             {theme.description && <p class="gallery-description">{theme.description}</p>}
           </div>
           <div class="gallery-grid">
-            {theme.images.map((item) => (
-              <figure class="gallery-card">
-                <a href={item.image.src} aria-label={`Abrir imagem: ${item.alt}`}>
-                  <Image src={item.image} alt={item.alt} width={Math.min(item.image.width, 800)} format="webp" loading="lazy" />
-                </a>
-                {item.caption && <figcaption>{item.caption}</figcaption>}
-              </figure>
-            ))}
+            {theme.images.slice(0, previewCount).map((item) => <GalleryCard item={item} />)}
           </div>
+          {theme.images.length > previewCount && (
+            <details class="gallery-more">
+              <summary>
+                <span class="gallery-more-show">Ver mais {theme.images.length - previewCount} fotos de {theme.title}</span>
+                <span class="gallery-more-hide">Recolher fotos de {theme.title}</span>
+              </summary>
+              <div class="gallery-grid">
+                {theme.images.slice(previewCount).map((item) => <GalleryCard item={item} />)}
+              </div>
+            </details>
+          )}
           {theme.hasNarrative && <GalleryNarratives category={theme.title} />}
         </article>
       ))}
     </div>
   </section>
+  <ImageViewer label="Visualizador de imagens da galeria" heading="REGISTROS DA GALERIA" />
   <section class="section section-tint">
     <div class="container editorial-grid">
       <div><p class="eyebrow"><span aria-hidden="true">✳</span> REGISTROS</p><h2>Memórias que continuam <em>vivas.</em></h2></div>

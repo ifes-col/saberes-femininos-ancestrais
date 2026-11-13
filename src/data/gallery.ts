@@ -5,7 +5,7 @@ const imageModules = import.meta.glob<ImageMetadata>(
   { eager: true, import: 'default' },
 );
 
-type GalleryImage = {
+export type GalleryImage = {
   image: ImageMetadata;
   alt: string;
   caption?: string;
