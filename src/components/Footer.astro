@@ -1,6 +1,29 @@
 ---
+import { Image } from 'astro:assets';
+import ifes from '../assets/brand/ifes-vitoria.png';
+import fapes from '../assets/brand/fapes-governo.png';
+import school from '../assets/brand/emefti-anacleta.png';
 import { email, instagramUrl, localPath, navItems } from '../lib/site';
 ---
+<section class="institutional-brands" aria-labelledby="institutional-brands-title">
+  <div class="container">
+    <h2 id="institutional-brands-title">Instituições e apoio</h2>
+    <div class="institutional-brands-grid">
+      <figure class="ifes-brand">
+        <Image src={ifes} alt="Instituto Federal do Espírito Santo, campus Vitória." width={300} format="webp" loading="lazy" />
+        <figcaption>Ifes – campus Vitória</figcaption>
+      </figure>
+      <figure class="fapes-brand">
+        <Image src={fapes} alt="Fapes e Governo do Espírito Santo, Secretaria da Ciência, Tecnologia, Inovação e Educação Profissional." width={1100} format="webp" loading="lazy" />
+        <figcaption>Fapes · Governo do Espírito Santo</figcaption>
+      </figure>
+      <figure class="school-brand">
+        <Image src={school} alt="Brasão da EMEFTI Anacleta Schneider Lucas, Vitória, ES." width={300} format="webp" loading="lazy" />
+        <figcaption>EMEFTI Anacleta Schneider Lucas</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>

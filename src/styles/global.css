@@ -142,6 +142,11 @@ h2 em, h1 em { font-weight: 400; color: var(--terracotta); }
 .prose h2 { color: var(--wine-dark); }
 .prose a.button { margin-top: 1rem; }
 .small-note { font-size: .82rem; }
+.project-details { margin: 0; }
+.project-details div { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.project-details div:first-child { padding-top: 0; }
+.project-details dt { margin-bottom: .35rem; color: var(--wine); font-size: .75rem; font-weight: 750; }
+.project-details dd { margin: 0; color: #554c47; line-height: 1.6; overflow-wrap: anywhere; }
 .team-content { padding-block: 4rem 6rem; }
 .team-group { padding-block: 2.5rem; border-bottom: 1px solid var(--line); }
 .team-group:last-child { border-bottom: 0; }
@@ -160,11 +165,33 @@ h2 em, h1 em { font-weight: 400; color: var(--terracotta); }
 .photo-grid figure { margin: 0; }
 .photo-grid a { display: block; height: 100%; }
 .photo-grid img { width: 100%; height: 100%; aspect-ratio: 1; object-fit: cover; }
+body.lightbox-open { overflow: hidden; }
+.lightbox[open] { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 1rem; border: 0; color: white; background: transparent; }
+.lightbox::backdrop { background: rgba(30, 20, 25, .92); }
+.lightbox-content { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; width: min(100%, 1200px); height: min(100%, 900px); }
+.lightbox-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: .75rem; }
+.lightbox-header p { margin: 0; font-size: .7rem; font-weight: 700; letter-spacing: .12em; }
+.lightbox-stage { display: grid; grid-template-columns: 48px minmax(0, 1fr) 48px; align-items: center; justify-items: center; gap: .75rem; min-height: 0; }
+.lightbox-image { width: auto; height: auto; max-width: 100%; max-height: min(750px, max(48px, calc(100dvh - 180px))); object-fit: contain; }
+.lightbox-button { display: grid; place-items: center; width: 48px; height: 48px; padding: 0; border: 1px solid #e8d8c8; border-radius: 50%; color: white; background: #4c2735; cursor: pointer; font-size: 2rem; line-height: 1; }
+.lightbox-button:hover { background: #6a3c4c; }
+.lightbox-button:focus-visible { outline-color: #f1d0aa; }
+.lightbox-caption { margin: 1rem 0 0; padding: .65rem; color: white; background: #30202a; text-align: center; font-size: .9rem; line-height: 1.5; }
 .theme-list { list-style: none; padding: 0; margin: 2rem 0; }
 .theme-list li { padding: .8rem 0; border-bottom: 1px solid var(--line); }
 .theme-list span { margin-right: .5rem; color: #9c573a; }
 .contact-list > div { padding: 0 0 2rem; margin-bottom: 2rem; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
 .contact-list h3 { color: var(--wine-dark); font-size: 1.6rem; }
+
+.institutional-brands { padding-block: 3rem; background: var(--sand); }
+.institutional-brands h2 { margin: 0 0 1.75rem; color: var(--wine-dark); font-family: inherit; font-size: .72rem; font-weight: 750; letter-spacing: .11em; text-transform: uppercase; }
+.institutional-brands-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.8fr) minmax(0, .8fr); align-items: center; gap: 2rem; }
+.institutional-brands figure { margin: 0; }
+.institutional-brands img { width: 100%; height: auto; }
+.institutional-brands figcaption { margin-top: .6rem; color: #554c47; font-size: .8rem; line-height: 1.5; }
+.ifes-brand img { max-width: 250px; }
+.school-brand { text-align: center; }
+.school-brand img { width: min(100%, 120px); margin-inline: auto; }
 
 .site-footer { padding-top: 5rem; color: #f8f1e9; background: #492a35; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.25fr; gap: 3rem; padding-bottom: 4rem; }
@@ -214,6 +241,13 @@ h2 em, h1 em { font-weight: 400; color: var(--terracotta); }
   .person-card h3 { font-size: 1.08rem; }
   .book-display { min-height: 300px; }
   .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+  .lightbox[open] { padding: .75rem; }
+  .lightbox-stage { grid-template-columns: 44px minmax(0, 1fr) 44px; gap: .25rem; }
+  .lightbox-button { width: 44px; height: 44px; }
+  .lightbox-caption { font-size: .8rem; }
+  .institutional-brands-grid { grid-template-columns: 1fr; }
+  .school-brand { text-align: left; }
+  .school-brand img { margin-inline: 0; }
   .footer-grid { gap: 2.5rem; }
 }
 @media (prefers-reduced-motion: reduce) {
