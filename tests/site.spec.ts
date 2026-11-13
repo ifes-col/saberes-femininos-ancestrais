@@ -123,7 +123,7 @@ test('galeria exibe o acervo completo, narrativas e grupos estáveis', async ({ 
   ] as const) {
     await expect(page.locator(`#${id} .gallery-card img`)).toHaveCount(count);
   }
-  await expect(page.locator('#mulheres-ancestrais img[alt="Delsa e Carminha"]')).toHaveCount(1);
+  await expect(page.locator('#mulheres-ancestrais img[alt="Delza e Carminha"]')).toHaveCount(1);
   await expect(page.locator('#pesquisa-no-territorio img[alt="Visita guiada por Pauliane, no Terreirinho, Piedade"]')).toHaveCount(1);
 
   const convertedHeif = page.locator('#mulheres-ancestrais img[alt="Escadaria em homenagem a Guiomar Leite de Oliveira, no bairro da Piedade."]');

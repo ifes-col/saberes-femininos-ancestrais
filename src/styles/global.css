@@ -153,6 +153,8 @@ h2 em, h1 em { font-weight: 400; color: var(--terracotta); }
 .gallery-narrative .prose { max-width: 850px; padding-top: 1rem; }
 .gallery-narrative h3 { margin: 1.5rem 0 .4rem; color: var(--wine-dark); font-size: 1.35rem; }
 .gallery-narrative li { margin-bottom: .75rem; line-height: 1.7; }
+.book-credits summary { color: var(--wine-dark); font-weight: 700; cursor: pointer; }
+.book-credits[open] { margin-bottom: 1rem; }
 .team-content { padding-block: 4rem 6rem; }
 .team-group { padding-block: 2.5rem; border-bottom: 1px solid var(--line); }
 .team-group:last-child { border-bottom: 0; }

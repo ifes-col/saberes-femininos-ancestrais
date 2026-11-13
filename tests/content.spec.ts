@@ -48,3 +48,19 @@ test('galeria usa duas colunas em telas estreitas', async ({ page }) => {
   expect(second!.x).toBeGreaterThan(first!.x);
   expect(third!.y).toBeGreaterThan(first!.y);
 });
+
+test('créditos do livro e legendas sem etapa presumida estão disponíveis', async ({ page }) => {
+  await page.goto('/resultados/livro/');
+  await page.getByText('Créditos do livro').click();
+  await expect(page.getByText('Identidade visual e projeto gráfico: Gustavo Binda.', { exact: false })).toBeVisible();
+  await expect(page.getByText('Fotografias do livro:', { exact: false })).toBeVisible();
+  const accessibility = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
+  expect(accessibility.violations).toEqual([]);
+  await page.goto('/galeria/');
+  await expect(page.getByRole('img', { name: 'Registro da caminhada científica.', exact: true })).toHaveCount(2);
+  await expect(page.getByText('Integrantes da Pastoral da Criança: Delza, Carminha, Nadir e Terezinha.', { exact: true })).toHaveCount(1);
+  await expect(page.getByText('Integrantes da Pastoral da Criança: Delza, Carminha, Nadir e Terezinha (da esquerda para a direita).', { exact: true })).toHaveCount(1);
+  await expect(page.getByRole('img', { name: 'Carlita Corrêa Pereira', exact: true })).toHaveCount(1);
+  await expect(page.getByRole('img', { name: 'Carmen Alonso Pascolar', exact: true })).toHaveCount(1);
+  await expect(page.getByRole('img', { name: 'Pesquisadores na Escadaria Guiomar Leite de Oliveira, na Piedade', exact: true })).toHaveCount(1);
+});
