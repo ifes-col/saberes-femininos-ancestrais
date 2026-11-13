@@ -1,0 +1,72 @@
+---
+interface Props {
+  category: string;
+}
+
+const { category } = Astro.props;
+---
+<details class="gallery-narrative">
+  <summary>Conheça as histórias desta seção</summary>
+  <div class="prose">
+    {category === 'Rodas de conversa' && (
+      <>
+        <p>Antes de iniciarmos as entrevistas, realizamos três rodas de conversa com pessoas que conhecem profundamente a história e a realidade das comunidades de Piedade e Fonte Grande. Esses encontros foram momentos de escuta, troca de experiências e compartilhamento de conhecimentos, que nos ajudaram a conhecer melhor o território e a compreender a importância das histórias e dos saberes das mulheres da comunidade.</p>
+        <h3>1ª roda de conversa com a convidada Ana Paula Rocha</h3>
+        <p>Nosso primeiro encontro foi com a convidada Ana Paula Rocha, em um momento de muito aprendizado e reflexão. Conhecemos um pouco de sua trajetória e de sua atuação no movimento antirracista, ampliando nosso olhar sobre as lutas, as histórias e as vivências da comunidade.</p>
+        <h3>2ª roda de conversa com Sandra Reis</h3>
+        <p>No dia 28 de maio, realizamos nossa segunda roda de conversa, com Sandra Reis. Foi um encontro especial e enriquecedor, marcado pela troca de experiências, pela escuta e por aprendizados importantes para a construção do projeto. Sua contribuição foi essencial para nossa aproximação com a comunidade e para o desenvolvimento das etapas seguintes da pesquisa.</p>
+        <h3>3ª roda de conversa com Carmen Pascolar (Carminha)</h3>
+        <p>Nossa terceira roda de conversa foi com Carmen Pascolar, conhecida como Carminha, que cresceu entre as comunidades de Moscoso, Piedade e Fonte Grande. Ao longo de sua trajetória, atuou como professora, pedagoga e coordenadora escolar. Seus conhecimentos e suas vivências foram fundamentais para essa aproximação inicial com a comunidade, além de nos ajudarem a mapear os saberes e as histórias que fazem parte desse território.</p>
+      </>
+    )}
+    {category === 'Caminhada científica' && (
+      <>
+        <p>Conheça um pouco de como foi a nossa caminhada nessa pesquisa de iniciação científica júnior:</p>
+        <ol>
+          <li><strong>Seleção dos bolsistas.</strong> Realização do processo seletivo dos estudantes, considerando entrevistas, rendimento escolar e vínculo com os territórios pesquisados.</li>
+          <li><strong>Estudo e preparação.</strong> Leituras, dinâmicas e atividades sobre ancestralidade feminina e a história das comunidades da Piedade e da Fonte Grande.</li>
+          <li><strong>Rodas de conversa.</strong> Encontros com mulheres da comunidade que compartilharam suas histórias, experiências e conhecimentos, além de indicarem possíveis participantes da pesquisa.</li>
+          <li><strong>Mapeamento das mulheres e de seus saberes.</strong> Identificação de mulheres reconhecidas por seus conhecimentos e contribuições para as comunidades, com o apoio de moradores e familiares.</li>
+          <li><strong>Preparação para as entrevistas.</strong> Participação em oficinas sobre memória, história, pesquisa em Ciências Humanas e fotografia, preparando os estudantes para o trabalho de campo.</li>
+          <li><strong>Visitas ao território.</strong> Conhecimento dos espaços e das histórias da Piedade e da Fonte Grande a partir das narrativas de moradores.</li>
+          <li><strong>Entrevistas.</strong> Realização de entrevistas com as mulheres, conhecendo suas histórias e saberes relacionados ao cuidado, à saúde, à educação, à cultura e à religiosidade.</li>
+          <li><strong>Sistematização das entrevistas.</strong> Organização das informações, reflexão sobre os conhecimentos compartilhados e seleção dos conteúdos para compor o livro.</li>
+          <li><strong>Elaboração do livro.</strong> Construção coletiva da proposta e produção dos textos que reúnem as histórias e os saberes das mulheres entrevistadas.</li>
+          <li><strong>Colorindo os Saberes Femininos Ancestrais.</strong> Realização de uma ação de grafitagem em muros da comunidade da Piedade, homenageando as mulheres e divulgando os resultados da pesquisa.</li>
+          <li><strong>Apresentação em eventos científicos.</strong> Participação em eventos acadêmicos para compartilhar os resultados, trocar experiências e divulgar o projeto para diferentes públicos.</li>
+        </ol>
+      </>
+    )}
+    {category === 'Pesquisa no território' && (
+      <>
+        <p>A pesquisa do projeto Saberes Femininos Ancestrais consistiu na realização de um trabalho de campo no território da Piedade e da Fonte Grande, em Vitória. Ao longo desse percurso, foram realizadas visitas, conversas e entrevistas com mulheres das comunidades, buscando conhecer suas histórias, experiências e saberes.</p>
+        <p>A pesquisa também contou com a realização de entrevistas com familiares e pessoas próximas de mulheres que já faleceram, possibilitando conhecer suas trajetórias por meio das memórias e dos relatos de quem conviveu com elas.</p>
+        <p>Esses encontros permitiram reunir diferentes histórias e conhecimentos sobre as mulheres e suas contribuições para a construção da vida comunitária, valorizando suas memórias e os saberes presentes no território.</p>
+      </>
+    )}
+    {category === 'Mulheres ancestrais' && (
+      <>
+        <h3>Mulheres do cuidado – Pastoral da Criança</h3>
+        <p>A Pastoral da Criança chegou à comunidade da Piedade com o propósito de acompanhar e apoiar famílias em situação de vulnerabilidade. Nesse movimento, algumas mulheres tiveram uma participação importante, dedicando parte de seu tempo ao cuidado, à orientação e ao acompanhamento das famílias da comunidade. Entre elas, estão Delza Correia, Franciele Correia, Ivonete Correia, Maria Dolores Gasparini (Irmã Dolores), Maria do Carmo Pascolar Cardoso (Carminha), Maria da Penha Borges, Nadir Monteiro e Terezinha Módolo de Souza. Suas histórias fazem parte da construção de uma rede de cuidado e solidariedade na Piedade.</p>
+        <h3>Movimento comunitário: a luta por direitos</h3>
+        <p>Por volta de 1985, cinco mulheres se mobilizaram para buscar melhorias e garantir direitos para os moradores da Piedade. Delza Corrêa, Elda Amorim, Elisa Barros de Oliveira, Maria do Carmo Pascoal Cardoso (Carminha) e Marlene Corrêa fundaram o Movimento Comunitário da Piedade, tendo Elda como primeira presidenta. A iniciativa nasceu das necessidades vividas pelas próprias mulheres e do desejo de transformar a realidade da comunidade. Com diálogo, mobilização e participação, elas se tornaram importantes representantes dos moradores e protagonistas na luta por direitos.</p>
+        <h3>A enfermeira do morro e o acolhimento</h3>
+        <p>Cuidar também é acolher, estar presente e ajudar quem precisa. Sônia Mara Paulino do Nascimento, conhecida como a enfermeira do morro, é lembrada por sua atuação no cuidado com as pessoas da comunidade. Outra mulher que marcou essa história foi Guiomar Leite de Oliveira, uma das fundadoras do morro. Além de trabalhar na escola como merendeira, ajudava na distribuição de alimentos e acolhia, em sua própria casa, pessoas que precisavam de apoio. Suas histórias mostram como o cuidado também se constrói nas relações de vizinhança e na solidariedade cotidiana.</p>
+        <h3>Mulheres lavadeiras</h3>
+        <p>O trabalho das lavadeiras fez parte da história de muitas mulheres da Piedade e da Fonte Grande. Por meio dessa atividade, elas garantiam o sustento de suas famílias e contribuíam para a criação dos filhos. Era um trabalho que exigia esforço e dedicação e que representava uma importante fonte de renda para muitas mulheres. Suas histórias também revelam as formas de trabalho e resistência que ajudaram a construir a vida na comunidade.</p>
+        <h3>Rosalina: samba, beleza e trabalhos manuais</h3>
+        <p>Rosalina Lobo Barbosa era uma mulher de muita alegria e talento. Sua habilidade com os trabalhos manuais estava presente na produção de elementos para as fantasias de Carnaval, como chapéus e perucas, confeccionados com cuidado e dedicação. Também trabalhava com os cabelos, utilizando o pente quente como uma de suas formas de obter renda. Além disso, realizava aplicações de injeções nas casas das pessoas. Entre o samba, o artesanato, a beleza e o cuidado, Rosalina deixou marcas de seus muitos saberes na comunidade.</p>
+        <h3>As baianas da Piedade</h3>
+        <p>As mulheres também ocupam um lugar importante na história dos festejos e das manifestações culturais da Piedade. As baianas representam essa presença feminina nas celebrações, contribuindo para manter vivas as tradições e os momentos de encontro da comunidade. Entre as mulheres que fazem parte dessa história estão Rita de Cássia Duarte, Maria da Glória dos Santos Ramos (Doquinha), Estelita Gomes Sales, Rejane de Oliveira Aguiar e Maria dos Anjos Martins (Dona Anjinha).</p>
+        <h3>Mulheres que ensinam: as educadoras da comunidade</h3>
+        <p>A educação também foi construída pelas mãos de mulheres que dedicaram suas trajetórias ao ensino e à formação de gerações. Entre elas, está Anacleta Schneider Lucas, cujo nome permanece na história da comunidade e da escola que a homenageia. Também lembramos Carlita Correia Pereira, professora cuja trajetória é reconhecida na comunidade e dá nome a um Centro Municipal de Educação Infantil (CMEI). Suas histórias representam a importância das mulheres na construção da educação e na formação das crianças da Piedade.</p>
+        <h3>Mulheres parteiras</h3>
+        <p>Antes mesmo de muitos recursos de saúde chegarem às comunidades, as parteiras desempenhavam um papel importante no acompanhamento das gestações e na chegada de novas vidas. Seus conhecimentos, construídos a partir da experiência e transmitidos ao longo do tempo, faziam parte das redes de cuidado entre mulheres. Na história da Piedade, lembramos de Carmem Leite do Nascimento e Carmem Alonso Pascolar, mulheres que representam esse saber.</p>
+        <h3>Benzedeiras: a fé que cuida e a ancestralidade que permanece</h3>
+        <p>O saber das benzedeiras reúne fé, acolhimento e conhecimentos transmitidos entre gerações. Na Piedade, Sandra Reis representa a permanência dessa tradição, mantendo vivo um modo de cuidar que faz parte da memória e da cultura popular da comunidade. Também lembramos de sua avó, Rosa Martins Reis, conhecida como Dona Rosa, cuja história integra essa transmissão de saberes e ancestralidade. São conhecimentos que atravessam gerações e continuam presentes na vida das mulheres e da comunidade.</p>
+        <h3>Rosa Maria Reis: o saber de reunir e celebrar</h3>
+        <p>Rosa Maria Reis, neta de Rosa Martins Reis (Dona Rosa), também deixou sua contribuição na história da comunidade por meio do cuidado e da organização coletiva. Seu saber está na capacidade de reunir pessoas, organizar festejos e criar momentos de celebração, como as quadrilhas. Também ajudava a cuidar das crianças quando as mães precisavam. Sua história revela que cuidar também é criar espaços de convivência, alegria e união entre as pessoas.</p>
+      </>
+    )}
+  </div>
+</details>

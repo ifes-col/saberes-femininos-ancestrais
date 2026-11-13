@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageIntro from '../components/PageIntro.astro';
+import GalleryNarratives from '../components/GalleryNarratives.astro';
 import { localPath } from '../lib/site';
 import { galleryThemes } from '../data/gallery';
 ---
@@ -9,21 +11,25 @@ import { galleryThemes } from '../data/gallery';
   <section class="section">
     <div class="container gallery-page">
       {galleryThemes.map((theme) => (
-        <article class="gallery-theme">
+        <article class="gallery-theme" id={theme.id}>
           <div class="gallery-header">
             <div>
               <p class="eyebrow"><span aria-hidden="true">✳</span> MEMÓRIA VISUAL</p>
               <h2>{theme.title}</h2>
             </div>
-            <p class="gallery-description">{theme.description}</p>
+            {theme.description && <p class="gallery-description">{theme.description}</p>}
           </div>
           <div class="gallery-grid">
             {theme.images.map((item) => (
               <figure class="gallery-card">
-                <img src={item.image.src} alt={item.alt} loading="lazy" />
+                <a href={item.image.src} aria-label={`Abrir imagem: ${item.alt}`}>
+                  <Image src={item.image} alt={item.alt} width={Math.min(item.image.width, 800)} format="webp" loading="lazy" />
+                </a>
+                {item.caption && <figcaption>{item.caption}</figcaption>}
               </figure>
             ))}
           </div>
+          {theme.hasNarrative && <GalleryNarratives category={theme.title} />}
         </article>
       ))}
     </div>

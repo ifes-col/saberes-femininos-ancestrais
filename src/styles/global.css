@@ -25,7 +25,7 @@ html { scroll-behavior: smooth; }
 body { margin: 0; }
 img { display: block; max-width: 100%; }
 a { color: inherit; }
-a:focus-visible, button:focus-visible { outline: 3px solid #956014; outline-offset: 4px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #956014; outline-offset: 4px; }
 main:focus { outline: none; }
 p { line-height: 1.8; }
 h1, h2, h3, p, figure { margin-top: 0; }
@@ -142,11 +142,17 @@ h2 em, h1 em { font-weight: 400; color: var(--terracotta); }
 .prose h2 { color: var(--wine-dark); }
 .prose a.button { margin-top: 1rem; }
 .small-note { font-size: .82rem; }
-.project-details { margin: 0; }
-.project-details div { padding: 1rem 0; border-bottom: 1px solid var(--line); }
-.project-details div:first-child { padding-top: 0; }
+.project-info { padding-block: 2rem; }
+.project-info details { border-block: 1px solid var(--line); }
+.project-info summary { padding: 1rem 0; color: var(--wine-dark); font-family: var(--serif); font-size: 1.4rem; cursor: pointer; }
+.project-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 1rem 2rem; margin: 0; padding: 0 0 1.5rem; }
 .project-details dt { margin-bottom: .35rem; color: var(--wine); font-size: .75rem; font-weight: 750; }
-.project-details dd { margin: 0; color: #554c47; line-height: 1.6; overflow-wrap: anywhere; }
+.project-details dd { margin: 0; color: #554c47; font-size: .9rem; line-height: 1.5; overflow-wrap: anywhere; }
+.gallery-narrative { margin: 1.5rem 0; }
+.gallery-narrative summary { color: var(--wine-dark); font-weight: 700; cursor: pointer; }
+.gallery-narrative .prose { max-width: 850px; padding-top: 1rem; }
+.gallery-narrative h3 { margin: 1.5rem 0 .4rem; color: var(--wine-dark); font-size: 1.35rem; }
+.gallery-narrative li { margin-bottom: .75rem; line-height: 1.7; }
 .team-content { padding-block: 4rem 6rem; }
 .team-group { padding-block: 2.5rem; border-bottom: 1px solid var(--line); }
 .team-group:last-child { border-bottom: 0; }
@@ -173,7 +179,9 @@ h2 em, h1 em { font-weight: 400; color: var(--terracotta); }
 .gallery-description { max-width: 580px; margin: 0; color: #554c47; }
 .gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .gallery-card { margin: 0; background: #efe4d8; overflow: hidden; }
-.gallery-card img { width: 100%; height: 100%; min-height: 240px; aspect-ratio: 4 / 3; object-fit: cover; }
+.gallery-card a { display: block; }
+.gallery-card img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; }
+.gallery-card figcaption { padding: .8rem 1rem; color: #554c47; font-size: .85rem; line-height: 1.5; }
 body.lightbox-open { overflow: hidden; }
 .lightbox[open] { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 1rem; border: 0; color: white; background: rgba(30, 20, 25, .92); }
 .lightbox::backdrop { background: rgba(30, 20, 25, .92); }
@@ -195,11 +203,10 @@ body.lightbox-open { overflow: hidden; }
 .institutional-brands { padding-block: 3rem; background: var(--sand); }
 .institutional-brands h2 { margin: 0 0 1.75rem; color: var(--wine-dark); font-family: inherit; font-size: .72rem; font-weight: 750; letter-spacing: .11em; text-transform: uppercase; }
 .institutional-brands-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.8fr) minmax(0, .8fr); align-items: center; gap: 2rem; }
-.institutional-brands figure { margin: 0; }
-.institutional-brands img { width: 100%; height: auto; }
+.institutional-brands figure { margin: 0; text-align: center; }
+.institutional-brands img { width: 100%; height: auto; margin-inline: auto; }
 .institutional-brands figcaption { margin-top: .6rem; color: #554c47; font-size: .8rem; line-height: 1.5; }
 .ifes-brand img { max-width: 250px; }
-.school-brand { text-align: center; }
 .school-brand img { width: min(100%, 120px); margin-inline: auto; }
 
 .site-footer { padding-top: 5rem; color: #f8f1e9; background: #492a35; }
@@ -249,14 +256,14 @@ body.lightbox-open { overflow: hidden; }
   .person-card > div { padding: .9rem; }
   .person-card h3 { font-size: 1.08rem; }
   .book-display { min-height: 300px; }
+  .gallery-header { align-items: flex-start; flex-direction: column; gap: .75rem; }
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
   .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
   .lightbox[open] { padding: .75rem; }
   .lightbox-stage { grid-template-columns: 44px minmax(0, 1fr) 44px; gap: .25rem; }
   .lightbox-button { width: 44px; height: 44px; }
   .lightbox-caption { font-size: .8rem; }
   .institutional-brands-grid { grid-template-columns: 1fr; }
-  .school-brand { text-align: left; }
-  .school-brand img { margin-inline: 0; }
   .footer-grid { gap: 2.5rem; }
 }
 @media (prefers-reduced-motion: reduce) {

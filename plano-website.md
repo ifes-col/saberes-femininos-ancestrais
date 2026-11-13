@@ -22,7 +22,7 @@ O [mapa do site](./fonte/mapa%20do%20site.docx) define as seções. Foram identi
 | Livro | [Link do repositório](./fonte/Resultados/Livro/link%20livro%20repositório.docx) e [PDF local](./fonte/Resultados/Livro/livro_saberes_femininos_ancestrais.pdf) | Priorizar o link oficial; verificar o acesso e a adequação da página de destino. |
 | Mural ancestral | [Texto](./fonte/Resultados/Mural%20ancestral/Mural%20Ancestral.docx) e 16 fotografias | Criar página de resultado com contexto e galeria própria; obter legendas e créditos. |
 | Galeria geral | Pastas temáticas com material fotográfico já disponível em `fonte/Galeria de fotos` | Publicar os temas com registros confirmados e manter a seleção editorial alinhada ao conteúdo disponível. |
-| Publicações e eventos | Pasta sem conteúdo | Não inventar itens; manter a seção preparada, sem links vazios, até receber material. |
+| Eventos científicos | [Texto de apresentação em eventos](./fonte/Resultados/Eventos%20científicos/Apresentação%20em%20eventos.docx) | Apresentar os três eventos informados, preservando datas e nomes da fonte. |
 | Identidade visual | [Logotipos, paleta, fonte e elementos](./fonte/Identidade%20visual/) | Aplicar a identidade existente, verificando permissões e adequação para uso na web. |
 | Instagram e contato | [Instagram](./fonte/Instagram/link%20do%20instagram.docx) e [e-mail institucional](./fonte/Contatos/contato.docx) | Usar links diretos, sem formulário ou integração automática. |
 
@@ -37,10 +37,10 @@ O menu principal terá Início, Apresentação, Equipe, Resultados, Galeria e Co
 | `/` | Abertura com identidade do projeto, resumo, chamadas para apresentação, livro, mural e equipe; créditos institucionais e contato no rodapé. |
 | `/apresentacao/` | Resumo, objetivos, metodologia e contexto institucional conforme o documento. Explicar a parceria e o financiamento sem acrescentar fatos não verificados. |
 | `/equipe/` | Retratos e nomes agrupados em coordenação, tutoria, pesquisadores juniores e estudantes de graduação, conforme o material. Exibir cargos e instituições fornecidos. |
-| `/resultados/` | Visão geral com cartões para livro e mural. Publicações e eventos aparecem somente quando houver conteúdo aprovado; se ainda indisponíveis, informar isso em texto, sem link quebrado. |
+| `/resultados/` | Visão geral com cartões para livro e mural e relato dos eventos científicos fornecido pelo projeto. |
 | `/resultados/livro/` | Apresentação sucinta e link para o [livro no repositório do Ifes](https://repositorio.ifes.edu.br/bitstreams/79db3c69-696b-48bf-8572-404eada66daf/download), identificado como acesso/download externo; confirmar disponibilidade antes do lançamento. |
 | `/resultados/mural-ancestral/` | Texto fornecido sobre o mural, créditos, contexto e galeria das 16 fotos disponíveis, sujeitas a autorização, legendas e seleção editorial. |
-| `/galeria/` | Índice das categorias previstas: rodas de conversa, caminhada científica, pesquisa no território, mulheres ancestrais e lançamento do livro. Enquanto não houver material aprovado, mostrar mensagem honesta de conteúdo em preparação, sem categorias clicáveis vazias. |
+| `/galeria/` | Fotografias e textos fornecidos para rodas de conversa, caminhada científica, pesquisa no território e mulheres ancestrais; incorporar o lançamento do livro quando houver material disponível. |
 | `/contato/` | Nome da coordenação e [e-mail institucional](mailto:luciana.girelli@ifes.edu.br), com endereço legível para copiar. |
 | `404.html` | Mensagem clara e retorno ao início, configurada conforme a hospedagem escolhida. |
 
@@ -153,7 +153,7 @@ Definir acesso ao repositório, domínio, responsável editorial e responsável 
 
 1. Confirmar responsável, domínio e plataforma de hospedagem.
 2. Aprovar mapa, identidade visual e critérios para conteúdo ainda indisponível.
-3. Fornecer fotos, legendas e créditos das cinco categorias da galeria, além de dados de publicações e eventos, quando existirem.
+3. Confirmar legendas e créditos das fotografias e fornecer material do lançamento do livro, quando disponível.
 4. Confirmar nomes, funções, autorizações de imagem e direitos de uso da marca, fonte, fotos e livro.
 5. Confirmar se o link do livro funciona para o público e obter versão acessível ou alternativa adequada.
 6. Definir quem revisará e atualizará os conteúdos após o lançamento.

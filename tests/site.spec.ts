@@ -107,11 +107,35 @@ test('marcas institucionais são carregadas no rodapé', async ({ page }) => {
   }
 });
 
-test('galeria exibe material real disponível e mantém outras seções em preparação', async ({ page }) => {
+test('galeria exibe o acervo completo, narrativas e grupos estáveis', async ({ page }) => {
   await page.goto('/galeria/');
   await expect(page.getByRole('heading', { name: 'Rodas de conversa' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Mulheres ancestrais' })).toBeVisible();
-  await expect(page.locator('.gallery-card img')).toHaveCount(12);
+  await expect(page.locator('.gallery-theme')).toHaveCount(5);
+  await expect(page.locator('.gallery-theme img')).toHaveCount(72);
+  await expect(page.locator('.gallery-narrative')).toHaveCount(4);
+  for (const [id, count] of [
+    ['rodas-de-conversa', 10],
+    ['caminhada-cientifica', 16],
+    ['pesquisa-no-territorio', 14],
+    ['mulheres-ancestrais', 20],
+    ['eventos-cientificos', 12],
+  ] as const) {
+    await expect(page.locator(`#${id} .gallery-card img`)).toHaveCount(count);
+  }
+  await expect(page.locator('#mulheres-ancestrais img[alt="Delsa e Carminha"]')).toHaveCount(1);
+  await expect(page.locator('#pesquisa-no-territorio img[alt="Visita guiada por Pauliane, no Terreirinho, Piedade"]')).toHaveCount(1);
+
+  const convertedHeif = page.locator('#mulheres-ancestrais img[alt="Escadaria em homenagem a Guiomar Leite de Oliveira, no bairro da Piedade."]');
+  await convertedHeif.scrollIntoViewIfNeeded();
+  await expect.poll(() => convertedHeif.evaluate((image) => image instanceof HTMLImageElement ? image.naturalWidth / image.naturalHeight : 0)).toBeCloseTo(3024 / 4032, 2);
+  expect((await page.request.get((await convertedHeif.locator('..').getAttribute('href'))!)).ok()).toBeTruthy();
+  for (const image of await page.locator('#eventos-cientificos img').all()) {
+    await expect(image).toHaveAttribute('alt', /^Registro fotográfico de evento científico \d+$/);
+    await expect(image).not.toHaveAttribute('src', /whatsapp|c[oó]pia|IMG-/i);
+  }
+
   await page.goto('/resultados/');
-  await expect(page.getByText('Esta seção está em preparação.')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Eventos científicos.' })).toBeVisible();
+  await expect(page.getByText('Esta seção está em preparação.')).toHaveCount(0);
 });
